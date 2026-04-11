@@ -1,0 +1,251 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 84% 60%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  /* ── FIXED: was bg-white which bled through all dark sections ── */
+  html,
+  body,
+  #root {
+    background-color: #0b1120;
+    color: #FBF9F9;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #00B6D5;
+  }
+}
+
+/* ══════════════════════════════════════════
+   GLOBAL KEYFRAMES
+   Defined here so Vite/Netlify never strips them.
+   Never define @keyframes inside JSX <style> tags.
+══════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+@keyframes ping-ring {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes grid-move {
+  0%   { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(0,182,213,0.3); }
+  50%       { box-shadow: 0 0 20px rgba(0,182,213,0.6), 0 0 30px rgba(0,182,213,0.4); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes loading {
+  0%   { background-position:  200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ══════════════════════════════════════════
+   ANIMATION UTILITY CLASSES
+   Used by Services, CTAPopup, DefenseSection etc.
+   Remove all <style> blocks from those components.
+══════════════════════════════════════════ */
+
+.animate-fadeInUp { animation: fadeInUp 0.9s ease forwards; }
+.fade-up          { animation: fadeUp   0.9s ease-out forwards; }
+.cta-popup        { animation: scaleIn  0.35s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.ping-ring        { animation: ping-ring 1.8s ease-out infinite; }
+.float            { animation: float 6s ease-in-out infinite; }
+.pulse-glow       { animation: pulseGlow 2s ease-in-out infinite; }
+
+.delay-150 { animation-delay: 0.15s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-500 { animation-delay: 0.50s; }
+.delay-700 { animation-delay: 0.70s; }
+
+/* ══════════════════════════════════════════
+   SERVICES COMPONENT
+   Moved from JSX <style> block
+══════════════════════════════════════════ */
+
+.service-item               { transition: color 0.2s ease; }
+.service-item:hover         { color: #00B6D5 !important; }
+.img-wrap img               { transition: transform 0.7s ease; }
+.img-wrap:hover img         { transform: scale(1.07); }
+
+/* ══════════════════════════════════════════
+   SHARED COMPONENT STYLES
+══════════════════════════════════════════ */
+
+.clean-card {
+  @apply bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-500;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.clean-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,182,213,0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.clean-card:hover::before { left: 100%; }
+
+.section-padding    { @apply py-20 md:py-24 lg:py-28; }
+
+.container-custom {
+  @apply container mx-auto px-4 md:px-6 lg:px-8 xl:px-12;
+  max-width: 1400px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00B6D5, #85C441);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0,182,213,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,182,213,0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 20s linear infinite;
+}
+
+.bg-cyber-grid {
+  background-image:
+    linear-gradient(rgba(0,182,213,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,182,213,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 25s linear infinite;
+}
+
+.glass-morphism {
+  @apply backdrop-blur-lg border border-gray-200/50 shadow-xl;
+  background: rgba(17,25,40,0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+}
+
+.interactive-card {
+  @apply clean-card cursor-pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,182,213,0.15);
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, #1a2540 25%, #1e2d4d 50%, #1a2540 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+/* ══════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════ */
+
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #0b1120; border-radius: 4px; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00B6D5, #85C441);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: #00a0bc; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .section-padding  { @apply py-12 md:py-16; }
+  .container-custom { @apply px-3; }
+}
+
+/* ══════════════════════════════════════════
+   ACCESSIBILITY
+══════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
