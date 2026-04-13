@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import { Users, Headphones, GraduationCap, Settings } from "lucide-react";
+import React from "react";
+import { Users, Headphones, GraduationCap, Settings, CheckCircle } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const serviceCategories = [
   {
     icon: Users,
     title: "Consulting and Advisory Services",
     image: "/assets/kev.jpeg",
-    accent: "#00B6D5",
-    border: "rgba(0,182,213,0.25)",
-    glow: "rgba(0,182,213,0.08)",
-    num: "01",
     services: [
       { name: "Project Management (PMP Methodology)", description: "End-to-end project management following PMI's PMP framework, ensuring delivery on time, within budget, and aligned with business goals." },
       { name: "IT Security and Systems Audit", description: "Thorough review of IT systems and security controls to identify vulnerabilities, ensure compliance, and strengthen defenses." },
@@ -23,10 +20,6 @@ const serviceCategories = [
     icon: Headphones,
     title: "Managed Security Services",
     image: "/assets/app1.jpeg",
-    accent: "#85C441",
-    border: "rgba(133,196,65,0.25)",
-    glow: "rgba(133,196,65,0.08)",
-    num: "02",
     services: [
       { name: "Proactive Monitoring & Incident Response", description: "24/7 security monitoring with real-time threat detection, response, and remediation to safeguard business operations." },
       { name: "Vulnerability & Patch Management", description: "Continuous vulnerability scans and automated patching to keep systems hardened against cyber exploits." },
@@ -37,10 +30,6 @@ const serviceCategories = [
     icon: GraduationCap,
     title: "Training and Awareness Programs",
     image: "/assets/app3.jpeg",
-    accent: "#00B6D5",
-    border: "rgba(0,182,213,0.25)",
-    glow: "rgba(0,182,213,0.08)",
-    num: "03",
     services: [
       { name: "Cybersecurity Essentials Training", description: "Hands-on training covering phishing awareness, social engineering, password security, and digital hygiene." },
       { name: "Data Protection & Compliance Training", description: "In-depth workshops on data privacy laws (GDPR, HIPAA) and compliance best practices for employees and executives." },
@@ -51,10 +40,6 @@ const serviceCategories = [
     icon: Settings,
     title: "Customized Cybersecurity Solutions",
     image: "/assets/app4.jpeg",
-    accent: "#85C441",
-    border: "rgba(133,196,65,0.25)",
-    glow: "rgba(133,196,65,0.08)",
-    num: "04",
     services: [
       { name: "Security Operations Center (SOC)", description: "Design and deployment of full-scale SOCs with incident response, SIEM integration, and continuous monitoring." },
       { name: "Network & Application Protection", description: "Multi-layer defenses including firewalls, intrusion prevention, and penetration testing for apps and networks." },
@@ -72,231 +57,175 @@ const serviceCategories = [
   },
 ];
 
-const Tooltip = ({ children, content, border }) => {
-  const [visible, setVisible] = useState(false);
-  return (
-    <span style={{ position: "relative", display: "block" }}>
-      <span
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-      >
-        {children}
-      </span>
-      {visible && (
-        <span style={{
-          position: "absolute",
-          top: "calc(100% + 8px)",
-          left: 0,
-          zIndex: 9999,
-          background: "#0a0a0a",
-          border: `1px solid ${border}`,
-          borderRadius: 10,
-          padding: "10px 14px",
-          fontSize: 13,
-          color: "#9aa3b0",
-          maxWidth: 300,
-          lineHeight: 1.6,
-          pointerEvents: "none",
-          whiteSpace: "normal",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
-        }}>
-          {content}
-        </span>
-      )}
-    </span>
-  );
-};
-
-const ServiceCard = ({ category, isEven }) => {
-  const IconComponent = category.icon;
-  const [imgError, setImgError] = useState(false);
-
-  if (!category) return null;
-
-  return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-      alignItems: "center",
-      gap: "3rem",
-    }}>
-      <div style={{
-        order: isEven ? 2 : 1,
-        background: "rgba(255,255,255,0.04)",
-        border: `1px solid ${category.border}`,
-        borderRadius: 16,
-        overflow: "hidden",
-        position: "relative",
-      }}>
-        <div style={{ height: 3, background: `linear-gradient(90deg, ${category.accent}, transparent)` }} />
-        <div style={{
-          position: "absolute", inset: 0,
-          background: `radial-gradient(ellipse at top left, ${category.glow}, transparent 60%)`,
-          pointerEvents: "none",
-        }} />
-        <div style={{ padding: "2rem", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-            <span style={{
-              fontSize: "2.5rem", fontWeight: 800,
-              color: category.accent, opacity: 0.15,
-              lineHeight: 1, flexShrink: 0,
-            }}>
-              {category.num}
-            </span>
-            <div style={{
-              width: 48, height: 48, flexShrink: 0,
-              borderRadius: 12, background: category.glow,
-              border: `1px solid ${category.border}`,
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <IconComponent size={22} strokeWidth={1.8} style={{ color: category.accent }} />
-            </div>
-            <h3 style={{
-              fontSize: "clamp(1rem, 2vw, 1.3rem)",
-              fontWeight: 700, color: "#FBF9F9",
-              lineHeight: 1.3, margin: 0,
-            }}>
-              {category.title}
-            </h3>
-          </div>
-          <div style={{ height: 1, background: category.border, marginBottom: "1.25rem" }} />
-          <ul style={{ display: "flex", flexDirection: "column", gap: 10, margin: 0, padding: 0, listStyle: "none" }}>
-            {category.services.map((service, i) => (
-              <Tooltip key={i} content={service.description} border={category.border}>
-                <li style={{
-                  display: "flex", alignItems: "flex-start",
-                  gap: 10, color: "#9aa3b0", fontSize: 15,
-                  cursor: "default", transition: "color 0.2s",
-                }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = category.accent)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#9aa3b0")}
-                >
-                  <span style={{
-                    width: 20, height: 20, borderRadius: 6,
-                    flexShrink: 0, marginTop: 2,
-                    background: category.glow,
-                    border: `1px solid ${category.border}`,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                  }}>
-                    <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5L4.5 7.5L8 2.5" stroke={category.accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  <span>{service.name}</span>
-                </li>
-              </Tooltip>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div style={{
-        order: isEven ? 1 : 2,
-        position: "relative", borderRadius: 16,
-        overflow: "hidden", border: `1px solid ${category.border}`,
-      }}>
-        <div style={{
-          position: "absolute", top: 0, left: 0, right: 0,
-          height: 3, background: `linear-gradient(90deg, ${category.accent}, transparent)`,
-          zIndex: 2,
-        }} />
-        {!imgError ? (
-          <img
-            src={category.image}
-            alt={category.title}
-            onError={() => setImgError(true)}
-            style={{
-              width: "100%", height: 360,
-              objectFit: "cover", display: "block",
-              transition: "transform 0.7s ease",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          />
-        ) : (
-          <div style={{
-            width: "100%", height: 360,
-            background: `linear-gradient(135deg, #050505, ${category.glow})`,
-            display: "flex", alignItems: "center", justifyContent: "center",
-          }}>
-            <IconComponent size={64} strokeWidth={1} style={{ color: category.accent, opacity: 0.3 }} />
-          </div>
-        )}
-        <div style={{
-          position: "absolute", inset: 0,
-          background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%)",
-        }} />
-        <div style={{
-          position: "absolute", bottom: 16, left: 16,
-          background: "rgba(0,0,0,0.85)",
-          border: `1px solid ${category.border}`,
-          borderRadius: 999, padding: "5px 14px",
-          display: "flex", alignItems: "center", gap: 6, zIndex: 3,
-        }}>
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: category.accent, display: "inline-block" }} />
-          <span style={{ fontSize: 11, color: category.accent, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-            {category.title.slice(0, 22)}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};
+const FALLBACK =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWYyOTM3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzlhYTNiMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SW1hZ2UgQ29taW5nIFNvb248L3RleHQ+PC9zdmc+";
 
 const Services = () => {
   return (
-    <section id="services" style={{
-      background: "#000000",
-      position: "relative",
-      overflow: "hidden",
-      padding: "7rem 1.5rem",
-      fontFamily: "system-ui, -apple-system, sans-serif",
-    }}>
-      <div style={{
-        position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='140' height='140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 70 H120 M70 20 V120' stroke='%2300B6D5' stroke-width='0.3' fill='none'/%3E%3Ccircle cx='20' cy='70' r='1.5' fill='%2385C441'/%3E%3Ccircle cx='120' cy='70' r='1.5' fill='%2300B6D5'/%3E%3Ccircle cx='70' cy='20' r='1.5' fill='%2385C441'/%3E%3Ccircle cx='70' cy='120' r='1.5' fill='%2300B6D5'/%3E%3C/svg%3E")`,
-        backgroundSize: "140px 140px", opacity: 0.05,
-      }} />
-      <div style={{ position: "absolute", pointerEvents: "none", zIndex: 0, width: 560, height: 560, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,182,213,0.07) 0%, transparent 70%)", top: -100, left: -100 }} />
-      <div style={{ position: "absolute", pointerEvents: "none", zIndex: 0, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(133,196,65,0.05) 0%, transparent 70%)", bottom: 200, right: 0 }} />
+    <TooltipProvider>
+      <style>{`
+        #services {
+          background:
+            linear-gradient(160deg, rgba(0,182,213,0.08) 0%, rgba(17,25,40,0.92) 50%, rgba(133,196,65,0.06) 100%),
+            linear-gradient(135deg, #0b1120 0%, #111928 50%, #1f2937 100%);
+          min-height: 100vh;
+          padding: 7rem 1.5rem;
+        }
+        .cyber-gradient {
+          background: linear-gradient(90deg, #00b6d5, #85c441);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .svc-card {
+          background: rgba(17, 25, 40, 0.97);
+          border: 1px solid rgba(0, 182, 213, 0.3);
+          border-radius: 1.25rem;
+          box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          padding: 2.5rem;
+        }
+        .svc-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 40px 80px rgba(0,182,213,0.25);
+          border-color: rgba(0,182,213,0.6);
+        }
+        .img-card {
+          border-radius: 1.25rem;
+          overflow: hidden;
+          border: 1px solid rgba(0, 182, 213, 0.4);
+          box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          position: relative;
+        }
+        .img-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 40px 80px rgba(133,196,65,0.3);
+        }
+        .img-card img {
+          width: 100%;
+          height: 420px;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.6s ease;
+        }
+        .img-card:hover img { transform: scale(1.05); }
+        .svc-item {
+          display: flex;
+          align-items: flex-start;
+          padding: 0.6rem 0.5rem;
+          border-radius: 0.75rem;
+          cursor: pointer;
+          transition: background 0.2s ease;
+        }
+        .svc-item:hover { background: rgba(0,182,213,0.06); }
+        .svc-item:hover .svc-name { color: #00b6d5; text-decoration: underline; }
+        .svc-name {
+          font-weight: 600;
+          color: #FBF9F9;
+          font-size: 0.95rem;
+          transition: color 0.2s ease;
+        }
+        .icon-wrap {
+          padding: 1rem;
+          background: linear-gradient(135deg, #00b6d5, #85c441);
+          border-radius: 1rem;
+          margin-right: 1.25rem;
+          flex-shrink: 0;
+          transition: transform 0.3s ease;
+        }
+        .svc-card:hover .icon-wrap { transform: scale(1.1); }
+        .services-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: center;
+          margin-bottom: 6rem;
+        }
+        @media (max-width: 1024px) {
+          .services-grid { grid-template-columns: 1fr; }
+          .img-order-first { order: -1; }
+        }
+      `}</style>
 
-      <div style={{ position: "relative", zIndex: 10, maxWidth: 1200, margin: "0 auto" }}>
+      <section id="services">
+        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "5rem" }}>
           <div style={{
-            display: "inline-flex", alignItems: "center", gap: 8,
-            background: "rgba(0,182,213,0.08)", border: "1px solid rgba(0,182,213,0.3)",
-            borderRadius: 999, padding: "5px 18px", marginBottom: 20,
+            display: "inline-flex", alignItems: "center", gap: "0.75rem",
+            marginBottom: "2rem", padding: "0.75rem 1.5rem", borderRadius: "9999px",
+            background: "linear-gradient(90deg, rgba(0,182,213,0.1), rgba(133,196,65,0.1))",
+            border: "1px solid rgba(0,182,213,0.3)"
           }}>
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#00B6D5", display: "inline-block", boxShadow: "0 0 0 3px rgba(0,182,213,0.2)" }} />
-            <span style={{ fontSize: 11, color: "#00B6D5", letterSpacing: "0.08em", fontWeight: 700, textTransform: "uppercase" }}>
+            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "linear-gradient(90deg, #00b6d5, #85c441)" }} />
+            <span style={{ textTransform: "uppercase", letterSpacing: "0.15em", color: "#00b6d5", fontWeight: 600, fontSize: "0.8rem" }}>
               What We Do
             </span>
           </div>
-          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, color: "#FBF9F9", lineHeight: 1.15, marginBottom: "1.25rem" }}>
-            Our <span style={{ color: "#00B6D5" }}>Services</span>
+
+          <h2 style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)", fontWeight: 900, lineHeight: 1, marginBottom: "1.5rem" }}>
+            <span className="cyber-gradient">Our Services</span>
           </h2>
-          <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.1rem)", color: "#6D7482", lineHeight: 1.75, maxWidth: 680, margin: "0 auto" }}>
-            Delivering world-class cybersecurity, compliance, and IT solutions engineered to safeguard your business in the digital era.
+
+          <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#9aa3b0", maxWidth: "48rem", margin: "0 auto", lineHeight: 1.7 }}>
+            Delivering world-class cybersecurity, compliance, and IT solutions
+            engineered to safeguard your business in the digital era.
           </p>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
-          {serviceCategories.map((category, index) => (
-            <ServiceCard key={index} category={category} isEven={index % 2 === 1} />
-          ))}
-        </div>
+        {/* Service rows */}
+        {serviceCategories.map((category, index) => {
+          const IconComponent = category.icon;
+          const isEven = index % 2 === 0;
+          return (
+            <div key={index} className="services-grid">
+              {/* Text card */}
+              <div className="svc-card" style={{ order: isEven ? 1 : 2 }}>
+                <div style={{ display: "flex", alignItems: "center", marginBottom: "2rem" }}>
+                  <div className="icon-wrap">
+                    <IconComponent style={{ width: 32, height: 32, color: "#0b1120" }} />
+                  </div>
+                  <h3 style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)", fontWeight: 900, color: "#FBF9F9", lineHeight: 1.3 }}>
+                    {category.title}
+                  </h3>
+                </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginTop: "6rem" }}>
-          <div style={{ flex: 1, maxWidth: 220, height: 1, background: "linear-gradient(to right, transparent, rgba(0,182,213,0.35))" }} />
-          <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(0,182,213,0.4)", display: "inline-block" }} />
-            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#00B6D5", display: "inline-block", boxShadow: "0 0 0 3px rgba(0,182,213,0.15)" }} />
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(133,196,65,0.4)", display: "inline-block" }} />
-          </div>
-          <div style={{ flex: 1, maxWidth: 220, height: 1, background: "linear-gradient(to left, transparent, rgba(133,196,65,0.35))" }} />
-        </div>
-      </div>
-    </section>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {category.services.map((service, i) => (
+                    <Tooltip key={i}>
+                      <TooltipTrigger asChild>
+                        <li className="svc-item">
+                          <CheckCircle style={{ width: 20, height: 20, color: "#00b6d5", marginRight: "0.75rem", marginTop: 2, flexShrink: 0 }} />
+                          <span className="svc-name">{service.name}</span>
+                        </li>
+                      </TooltipTrigger>
+                      <TooltipContent side="right" className="max-w-xs p-4 text-sm rounded-xl bg-[#0b1120] border border-[#00b6d5]/30 text-[#FBF9F9] shadow-2xl">
+                        {service.description}
+                      </TooltipContent>
+                    </Tooltip>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Image card */}
+              <div className={`img-card ${isEven ? "" : "img-order-first"}`} style={{ order: isEven ? 2 : 1 }}>
+                <img
+                  src={category.image}
+                  alt={category.title}
+                  onError={(e) => {
+                    e.target.src = FALLBACK;
+                    e.target.style.objectFit = "contain";
+                  }}
+                />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)", pointerEvents: "none" }} />
+              </div>
+            </div>
+          );
+        })}
+      </section>
+    </TooltipProvider>
   );
 };
 
