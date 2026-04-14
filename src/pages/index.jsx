@@ -9,6 +9,7 @@ import Clients from "../components/Clients";
 import Footer from "../components/Footer";
 import ThreatsSection from "../components/ThreatsSection";
 import DefenseSection from "../components/DefenseSection";
+// ❌ REMOVE: import Privacy from "@/components/privacy";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
       <WhyChooseUs />
       <Clients />
       <Footer />
+      {/* ❌ REMOVE: <Privacy /> */}
     </main>
   );
 };

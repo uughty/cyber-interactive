@@ -14,20 +14,20 @@ const pillars = [
   {
     number: "01",
     title: "Proactive Defence",
-    desc: "We identify and neutralise threats before they cause damage — through continuous monitoring, red teaming, and real-time threat intelligence tailored to the African digital landscape.",
-    color: "#00B6D5",
+    desc: "We identify and neutralise threats before they cause damage through continuous monitoring, red teaming, and real-time threat intelligence tailored to the African digital landscape.",
+    color: "#F97316",
   },
   {
     number: "02",
     title: "Always-On Support",
-    desc: "Our Security Operations Centre runs 24/7. Guaranteed response times, direct access to senior analysts, and zero tolerance for downtime when it matters most.",
-    color: "#85C441",
+    desc: "Our Security Operations Centre runs 24/7.Guaranteed response times,direct access to senior analysts, and zero tolerance for downtime when it matters most.",
+    color: "#FFFFFF",
   },
   {
     number: "03",
-    title: "Global Standards, Local Depth",
-    desc: "CISSP, CISM, CEH, and OSCP certified consultants. We apply ISO 27001, NIST CSF, and Kenya DPA frameworks with an intimate understanding of regional threats.",
-    color: "#00B6D5",
+    title: "Global Standards,Local Depth",
+    desc: "CISSP, CISM, CEH, and OSCP certified consultants.We apply ISO 27001, NIST CSF, and Kenya DPA frameworks with an intimate understanding of regional threats.",
+    color: "#F97316",
   },
 ];
 
@@ -58,7 +58,7 @@ const About = () => {
         className="absolute inset-0 z-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "linear-gradient(#00B6D5 1px, transparent 1px), linear-gradient(90deg, #00B6D5 1px, transparent 1px)",
+            "linear-gradient(#F97316 1px, transparent 1px), linear-gradient(90deg, #F97316 1px, transparent 1px)",
           backgroundSize: "72px 72px",
         }}
       />
@@ -68,7 +68,7 @@ const About = () => {
         className="absolute rounded-full blur-3xl z-0"
         style={{
           width: "520px", height: "520px",
-          backgroundColor: "rgba(0,182,213,0.07)",
+          backgroundColor: "rgba(249,115,22,0.07)",
           top: "-80px", left: "-120px",
           y: y1,
         }}
@@ -83,20 +83,20 @@ const About = () => {
             {...fadeUp(0)}
           >
             <p className="font-bold tracking-[0.2em] uppercase mb-4"
-              style={{ fontSize: "11px", color: "#00B6D5" }}>
-              About Cybertrove Africa
+              style={{ fontSize: "11px", color: "#F97316" }}>
+              About CyberTrove Africa
             </p>
             <h2 className="font-black leading-none mb-0"
               style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", color: "#FBF9F9", letterSpacing: "-0.02em" }}>
               Who We{" "}
               <span className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(90deg, #00B6D5, #85C441)" }}>
+                style={{ backgroundImage: "linear-gradient(90deg, #F97316, #FFFFFF)" }}>
                 Are
               </span>
             </h2>
             <motion.div
               className="mt-6 rounded-full"
-              style={{ height: "2px", width: "80px", background: "linear-gradient(90deg, #00B6D5, #85C441)" }}
+              style={{ height: "2px", width: "80px", background: "linear-gradient(90deg, #F97316, #FFFFFF)" }}
               initial={{ scaleX: 0, originX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -110,9 +110,9 @@ const About = () => {
           >
             <p className="font-medium leading-relaxed"
               style={{ fontSize: "clamp(1.05rem, 1.8vw, 1.25rem)", color: "#9CA3AF" }}>
-              Cybertrove Africa is a{" "}
+              CyberTrove Africa is a{" "}
               <span className="font-bold" style={{ color: "#FBF9F9" }}>strategic cybersecurity partner</span>{" "}
-              committed to empowering organisations across the continent —
+              committed to empowering organisations across the continent 
               delivering resilience that is proportionate, practical, and built to last.
             </p>
           </motion.div>
@@ -122,31 +122,34 @@ const About = () => {
         <div className="grid grid-cols-12 gap-8 mb-24 items-start">
 
           <motion.div className="col-span-12 lg:col-span-5" {...fadeUp(0.1)}>
-            <motion.div
-              className="relative rounded-2xl overflow-hidden"
-              style={{ aspectRatio: "4/5" }}
-              animate={{
-                boxShadow: [
-                  "0 0 0 1px rgba(0,182,213,0.2), 0 24px 60px rgba(0,0,0,0.5)",
-                  "0 0 0 1px rgba(133,196,65,0.2), 0 24px 60px rgba(0,0,0,0.5)",
-                  "0 0 0 1px rgba(0,182,213,0.2), 0 24px 60px rgba(0,0,0,0.5)",
-                ],
-              }}
-              transition={{ duration: 5, repeat: Infinity, repeatType: "mirror" }}
-            >
-              <img
-                src="/assets/unnamed.jpg"
-                alt="Cybertrove Africa team"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0"
-                style={{ background: "linear-gradient(160deg, transparent 40%, rgba(17,25,40,0.85) 100%)" }} />
-              <div className="absolute bottom-6 left-6 rounded-xl px-5 py-4"
-                style={{ backgroundColor: "rgba(17,25,40,0.85)", border: "1px solid rgba(0,182,213,0.3)", backdropFilter: "blur(12px)" }}>
-                <p className="font-black" style={{ fontSize: "2.2rem", color: "#00B6D5", lineHeight: 1 }}>12+</p>
-                <p className="font-medium mt-1" style={{ fontSize: "12px", color: "#9CA3AF" }}>African countries served</p>
-              </div>
-            </motion.div>
+           <motion.div
+  className="relative rounded-2xl overflow-hidden"
+  style={{ aspectRatio: "4/5" }}
+  animate={{
+    boxShadow: [
+      "0 0 0 1px rgba(249,115,22,0.2), 0 24px 60px rgba(0,0,0,0.5)",
+      "0 0 0 1px rgba(255,255,255,0.2), 0 24px 60px rgba(0,0,0,0.5)",
+      "0 0 0 1px rgba(249,115,22,0.2), 0 24px 60px rgba(0,0,0,0.5)",
+    ],
+  }}
+  transition={{ duration: 5, repeat: Infinity, repeatType: "mirror" }}
+>
+  <img
+    src="/assets/sec.png"
+    alt="CyberTrove Africa team"
+    className="w-full h-full object-cover"
+    style={{ filter: "brightness(1.1) contrast(1.05) saturate(1.1)" }}
+  />
+  <div
+    className="absolute inset-0"
+    style={{ background: "linear-gradient(180deg, transparent 55%, rgba(17,25,40,0.75) 100%)" }}
+  />
+  <div className="absolute bottom-6 left-6 rounded-xl px-5 py-4"
+    style={{ backgroundColor: "rgba(17,25,40,0.85)", border: "1px solid rgba(249,115,22,0.3)", backdropFilter: "blur(12px)" }}>
+    <p className="font-black" style={{ fontSize: "2.2rem", color: "#F97316", lineHeight: 1 }}>12+</p>
+    <p className="font-medium mt-1" style={{ fontSize: "12px", color: "#9CA3AF" }}>African countries served</p>
+  </div>
+</motion.div>
           </motion.div>
 
           <motion.div className="col-span-12 lg:col-span-6 lg:col-start-7 lg:pt-8" {...fadeUp(0.2)}>
@@ -155,9 +158,9 @@ const About = () => {
 
             <div className="space-y-5">
               {[
-                <>We combine{" "}<span className="font-bold" style={{ color: "#00B6D5" }}>globally recognised frameworks</span>{" "}with an intimate understanding of the African threat landscape. From Nairobi to Lagos, our experts embed with your teams to build defences that are proportionate, practical, and proactive.</>,
-                <>Our certified professionals holding{" "}<span className="font-bold" style={{ color: "#85C441" }}>CISSP, CISM, CEH, and OSCP</span>{" "}qualifications deliver proactive strategies and advisory services, acting as trusted partners in safeguarding your most critical digital assets.</>,
-                <>Unlike traditional providers, we stay engaged long after the initial assessment — continuously evolving your security posture as threats, regulations, and technology change around you.</>,
+                <>We combine{" "}<span className="font-bold" style={{ color: "#F97316" }}>globally recognised frameworks</span>{" "}with an intimate understanding of the African threat landscape. From Nairobi to Lagos, our experts embed with your teams to build defences that are proportionate, practical, and proactive.</>,
+                <>Our certified professionals holding{" "}<span className="font-bold" style={{ color: "#FFFFFF" }}>CISSP, CISM, CEH, and OSCP</span>{" "}qualifications deliver proactive strategies and advisory services, acting as trusted partners in safeguarding your most critical digital assets.</>,
+                <>Unlike traditional providers, we stay engaged long after the initial assessment  continuously evolving your security posture as threats, regulations, and technology change around you.</>,
               ].map((text, i) => (
                 <p key={i} className="font-medium leading-relaxed"
                   style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)", color: "#D1D5DB" }}>
@@ -166,13 +169,13 @@ const About = () => {
               ))}
             </div>
 
-            <div className="mt-8 pl-5" style={{ borderLeft: "3px solid #00B6D5" }}>
+            <div className="mt-8 pl-5" style={{ borderLeft: "3px solid #F97316" }}>
               <p className="font-medium italic leading-relaxed"
                 style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)", color: "#6D7482" }}>
-                "The best security strategy isn't the most expensive one — it's the one your team will actually use."
+                "The best security strategy isn't the most expensive one  it's the one your team will actually use."
               </p>
               <span className="font-medium mt-2 block" style={{ fontSize: "11px", color: "#4B5563" }}>
-                — Cybertrove Africa founding principle
+                 CyberTrove Africa founding principle
               </span>
             </div>
           </motion.div>
@@ -188,7 +191,7 @@ const About = () => {
             <div key={s.num} className="flex flex-col justify-center px-8 py-8"
               style={{ backgroundColor: "#111928" }}>
               <p className="font-black"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 2.8rem)", color: i % 2 === 0 ? "#00B6D5" : "#85C441", lineHeight: 1, letterSpacing: "-0.02em" }}>
+                style={{ fontSize: "clamp(2rem, 3.5vw, 2.8rem)", color: i % 2 === 0 ? "#F97316" : "#FFFFFF", lineHeight: 1, letterSpacing: "-0.02em" }}>
                 {s.num}
               </p>
               <p className="font-medium mt-2" style={{ fontSize: "13px", color: "#6D7482" }}>{s.label}</p>

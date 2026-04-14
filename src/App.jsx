@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
+import Privacy from "./components/Privacy";        // ← add this
+import Footer from "./components/Footer";          // ← add this
 
 const queryClient = new QueryClient();
 
@@ -27,12 +29,18 @@ const App = () => {
         <main style={{
           paddingTop: "72px",
           overflowX: "hidden",
-          background: "#000000",
+          background: "#111928",                   // ← update to match privacy bg
           minHeight: "100vh",
           color: "#FBF9F9",
         }}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/privacy" element={            // ← add this route
+              <>
+                <Privacy />
+                <Footer />
+              </>
+            } />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -11,13 +11,13 @@ const threats = [
       "Ransomware, phishing & zero-day exploits",
       "Average breach cost: $4.45M globally",
     ],
-    accent: "#00B6D5",
-    glow: "rgba(0,182,213,0.12)",
-    border: "rgba(0,182,213,0.25)",
-    topBorder: "#00B6D5",
+    accent: "#F97316",
+    glow: "rgba(249,115,22,0.12)",
+    border: "rgba(249,115,22,0.25)",
+    topBorder: "#F97316",
     badge: "HIGH RISK",
-    badgeBg: "rgba(0,182,213,0.12)",
-    badgeColor: "#00B6D5",
+    badgeBg: "rgba(249,115,22,0.12)",
+    badgeColor: "#F97316",
     num: "01",
   },
   {
@@ -28,13 +28,13 @@ const threats = [
       "Severe penalties for non-compliance",
       "Complex, ever-changing requirements",
     ],
-    accent: "#85C441",
-    glow: "rgba(133,196,65,0.1)",
-    border: "rgba(133,196,65,0.25)",
-    topBorder: "#85C441",
+    accent: "#FFFFFF",
+    glow: "rgba(255,255,255,0.08)",
+    border: "rgba(255,255,255,0.15)",
+    topBorder: "#FFFFFF",
     badge: "REGULATORY",
-    badgeBg: "rgba(133,196,65,0.12)",
-    badgeColor: "#85C441",
+    badgeBg: "rgba(255,255,255,0.08)",
+    badgeColor: "#FFFFFF",
     num: "02",
   },
   {
@@ -45,13 +45,13 @@ const threats = [
       "Budget & staffing constraints",
       "24/7 monitoring challenges",
     ],
-    accent: "#00B6D5",
-    glow: "rgba(0,182,213,0.10)",
-    border: "rgba(0,182,213,0.2)",
-    topBorder: "#00B6D5",
+    accent: "#F97316",
+    glow: "rgba(249,115,22,0.10)",
+    border: "rgba(249,115,22,0.2)",
+    topBorder: "#F97316",
     badge: "CRITICAL",
-    badgeBg: "rgba(0,182,213,0.1)",
-    badgeColor: "#00B6D5",
+    badgeBg: "rgba(249,115,22,0.1)",
+    badgeColor: "#F97316",
     num: "03",
   },
 ];
@@ -67,27 +67,27 @@ const ThreatsSection = () => {
   return (
     <section
       id="threats"
-      style={{ background: "#0b1120" }}
+      style={{ background: "#111928" }}
       className="relative py-28 px-6 md:px-12 overflow-hidden"
     >
       {/* Circuit grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 L60 60 L60 0' stroke='%2300B6D5' stroke-width='0.3' fill='none'/%3E%3Cpath d='M60 120 L60 60 L120 60' stroke='%2300B6D5' stroke-width='0.3' fill='none'/%3E%3Ccircle cx='60' cy='60' r='1.5' fill='%2385C441'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 L60 60 L60 0' stroke='%23F97316' stroke-width='0.3' fill='none'/%3E%3Cpath d='M60 120 L60 60 L120 60' stroke='%23F97316' stroke-width='0.3' fill='none'/%3E%3Ccircle cx='60' cy='60' r='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E")`,
           backgroundSize: "120px 120px",
           opacity: 0.06,
         }}
       />
 
       {/* Ambient globs */}
-      <div className="absolute pointer-events-none" style={{ width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,182,213,0.06) 0%, transparent 70%)", top: -160, left: -120 }} />
-      <div className="absolute pointer-events-none" style={{ width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(133,196,65,0.05) 0%, transparent 70%)", bottom: 0, right: 0 }} />
+      <div className="absolute pointer-events-none" style={{ width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 70%)", top: -160, left: -120 }} />
+      <div className="absolute pointer-events-none" style={{ width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)", bottom: 0, right: 0 }} />
 
       {/* Horizontal scan line */}
       <motion.div
         className="absolute pointer-events-none"
-        style={{ left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,182,213,0.15), transparent)" }}
+        style={{ left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.15), transparent)" }}
         animate={{ top: ["10%", "90%", "10%"] }}
         transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
       />
@@ -99,25 +99,25 @@ const ThreatsSection = () => {
           <div
             className="inline-flex items-center gap-2 mb-6"
             style={{
-              background: "rgba(0,182,213,0.08)",
-              border: "0.5px solid rgba(0,182,213,0.3)",
+              background: "rgba(249,115,22,0.08)",
+              border: "0.5px solid rgba(249,115,22,0.3)",
               borderRadius: 999,
               padding: "5px 18px",
             }}
           >
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#00B6D5", display: "inline-block", boxShadow: "0 0 0 3px rgba(0,182,213,0.2)" }} />
-            <span style={{ fontSize: "0.7rem", color: "#00B6D5", letterSpacing: "0.08em", fontWeight: 600 }}>
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#F97316", display: "inline-block", boxShadow: "0 0 0 3px rgba(249,115,22,0.2)" }} />
+            <span style={{ fontSize: "0.7rem", color: "#F97316", letterSpacing: "0.08em", fontWeight: 600 }}>
               THREAT LANDSCAPE
             </span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-5" style={{ color: "#FBF9F9" }}>
             The Digital Threats Keeping{" "}
-            <span style={{ color: "#00B6D5" }}>Business Leaders</span> Awake
+            <span style={{ color: "#F97316" }}>Business Leaders</span> Awake
           </h2>
 
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "#6D7482", lineHeight: 1.75 }}>
-            Modern cyber threats move fast. Without the right defences, your business is exposed — here's what you're up against.
+            Modern cyber threats move fast. Without the right defences, your business is exposed  here's what you're up against.
           </p>
         </motion.div>
 
@@ -225,13 +225,13 @@ const ThreatsSection = () => {
 
         {/* ── Decorative divider ── */}
         <div className="flex items-center justify-center gap-3 mb-16">
-          <div style={{ flex: 1, maxWidth: 220, height: "0.5px", background: "linear-gradient(to right, transparent, rgba(0,182,213,0.35))" }} />
+          <div style={{ flex: 1, maxWidth: 220, height: "0.5px", background: "linear-gradient(to right, transparent, rgba(249,115,22,0.35))" }} />
           <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(0,182,213,0.4)", display: "inline-block" }} />
-            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#00B6D5", display: "inline-block", boxShadow: "0 0 0 3px rgba(0,182,213,0.15)" }} />
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(133,196,65,0.4)", display: "inline-block" }} />
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(249,115,22,0.4)", display: "inline-block" }} />
+            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#F97316", display: "inline-block", boxShadow: "0 0 0 3px rgba(249,115,22,0.15)" }} />
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(255,255,255,0.3)", display: "inline-block" }} />
           </div>
-          <div style={{ flex: 1, maxWidth: 220, height: "0.5px", background: "linear-gradient(to left, transparent, rgba(133,196,65,0.35))" }} />
+          <div style={{ flex: 1, maxWidth: 220, height: "0.5px", background: "linear-gradient(to left, transparent, rgba(255,255,255,0.2))" }} />
         </div>
 
         {/* ── CTA Banner ── */}
@@ -239,7 +239,7 @@ const ThreatsSection = () => {
           {...fadeUp(0.3)}
           style={{
             background: "rgba(17,25,40,0.8)",
-            border: "0.5px solid rgba(0,182,213,0.2)",
+            border: "0.5px solid rgba(249,115,22,0.2)",
             borderRadius: 16,
             overflow: "hidden",
             backdropFilter: "blur(14px)",
@@ -247,17 +247,17 @@ const ThreatsSection = () => {
           }}
         >
           {/* Banner top accent */}
-          <div style={{ height: 2, background: "linear-gradient(90deg, #00B6D5, #85C441, transparent)" }} />
+          <div style={{ height: 2, background: "linear-gradient(90deg, #F97316, #FFFFFF, transparent)" }} />
 
           {/* Banner inner glow */}
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center top, rgba(0,182,213,0.06), transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center top, rgba(249,115,22,0.06), transparent 60%)", pointerEvents: "none" }} />
 
           <div style={{ padding: "2.5rem 2rem", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "1.25rem", textAlign: "center" }}>
-            <div style={{ width: 48, height: 3, borderRadius: 999, background: "linear-gradient(90deg, #00B6D5, #85C441)" }} />
+            <div style={{ width: 48, height: 3, borderRadius: 999, background: "linear-gradient(90deg, #F97316, #FFFFFF)" }} />
 
             <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "#FBF9F9" }}>
               We Protect You From{" "}
-              <span style={{ color: "#00B6D5" }}>All of This</span>
+              <span style={{ color: "#F97316" }}>All of This</span>
             </h3>
 
             <p style={{ color: "#6D7482", maxWidth: 480, lineHeight: 1.7 }}>
@@ -268,13 +268,13 @@ const ThreatsSection = () => {
               href="#defence"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
-                background: "#00B6D5", color: "#111928",
+                background: "#F97316", color: "#111928",
                 fontWeight: 700, fontSize: "0.9rem",
                 borderRadius: 999, padding: "12px 28px",
                 textDecoration: "none", transition: "background 0.2s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "#00a0bc")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "#00B6D5")}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#ea580c")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#F97316")}
             >
               Discover How We Protect You
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 const Hero = ({ onAboutClick, onServicesClick }) => {
   const canvasRef = useRef(null);
@@ -123,14 +122,31 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
           {...fadeUp(0)}
           className="inline-flex items-center gap-2 mb-6"
           style={{
-            background: "rgba(0,182,213,0.1)",
-            border: "0.5px solid rgba(0,182,213,0.35)",
+            background: "rgba(255,138,0,0.1)",
+            border: "0.5px solid rgba(255,138,0,0.35)",
             borderRadius: "999px",
             padding: "5px 18px",
           }}
         >
-          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#00B6D5", boxShadow: "0 0 0 3px rgba(0,182,213,0.25)", display: "inline-block", flexShrink: 0 }} />
-          <span style={{ fontSize: "0.72rem", color: "#00B6D5", letterSpacing: "0.07em", fontWeight: 600 }}>
+          <span
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: "50%",
+              background: "#FF8A00",
+              boxShadow: "0 0 0 3px rgba(255,138,0,0.25)",
+              display: "inline-block",
+              flexShrink: 0,
+            }}
+          />
+          <span
+            style={{
+              fontSize: "0.72rem",
+              color: "#FF8A00",
+              letterSpacing: "0.07em",
+              fontWeight: 600,
+            }}
+          >
             TRUSTED CYBERSECURITY PARTNER
           </span>
         </motion.div>
@@ -139,22 +155,22 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
         <motion.h1
           {...fadeUp(0.15)}
           className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-          style={{ color: "#FBF9F9" }}
+          style={{ color: "#FFFFFF" }}
         >
-          Is Your Business{" "}
-          <span style={{ color: "#00B6D5" }}>Safe From Cyber Threats?</span>
+          Cyber threats are evolving{" "}
+          <span style={{ color: "#FF8A00" }}>Is your business ready?</span>
         </motion.h1>
 
         {/* Subheading */}
         <motion.p
           {...fadeUp(0.3)}
           className="mt-6 text-lg md:text-xl font-light"
-          style={{ color: "#9aa3b0", lineHeight: 1.75 }}
+          style={{ color: "#FFFFFF", lineHeight: 1.75 }}
         >
           Protecting your business continuity, customer trust, and bottom line through{" "}
-          <span style={{ color: "#00B6D5", fontWeight: 500 }}>Interactive Defense</span>{" "}
+          <span style={{ color: "#FF8A00", fontWeight: 500 }}>Interactive Defense</span>{" "}
           and{" "}
-          <span style={{ color: "#85C441", fontWeight: 500 }}>Proactive Security</span>.
+          <span style={{ color: "#FF8A00", fontWeight: 500 }}>Proactive Security</span>.
         </motion.p>
 
         {/* CTAs */}
@@ -162,28 +178,56 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
           {...fadeUp(0.45)}
           className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
         >
-          <Button
+          {/* Primary button — orange fill */}
+          <button
             onClick={onAboutClick}
-            size="lg"
-            className="transition-transform hover:scale-105 rounded-full px-10 py-5 font-semibold shadow-md"
-            style={{ background: "#00B6D5", color: "#111928", border: "none" }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#00a0bc")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#00B6D5")}
+            className="transition-transform hover:scale-105"
+            style={{
+              background: "#FF8A00",
+              color: "#FFFFFF",
+              border: "none",
+              borderRadius: "999px",
+              padding: "14px 40px",
+              fontSize: "1rem",
+              fontWeight: 600,
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              boxShadow: "0 4px 14px rgba(255,138,0,0.35)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#e07a00")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#FF8A00")}
           >
-            Get Free Security Assessment <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+            Get Free Security Assessment
+            <ArrowRight style={{ width: 20, height: 20 }} />
+          </button>
 
-          <Button
+          {/* Secondary button — white outline */}
+          <button
             onClick={onServicesClick}
-            size="lg"
-            variant="outline"
-            className="transition-transform hover:scale-105 rounded-full px-10 py-5 font-semibold"
-            style={{ border: "1.5px solid #85C441", color: "#85C441", background: "transparent" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#85C441"; e.currentTarget.style.color = "#111928"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#85C441"; }}
+            className="transition-transform hover:scale-105"
+            style={{
+              background: "transparent",
+              color: "#FFFFFF",
+              border: "1.5px solid #FFFFFF",
+              borderRadius: "999px",
+              padding: "14px 40px",
+              fontSize: "1rem",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#FFFFFF";
+              e.currentTarget.style.color = "#111928";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "#FFFFFF";
+            }}
           >
             Explore Our Solutions
-          </Button>
+          </button>
         </motion.div>
 
         {/* Trust indicators */}
@@ -192,12 +236,12 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
           className="mt-12 flex flex-wrap justify-center gap-6 text-sm md:text-base"
         >
           {[
-            { icon: "💻", text: "15+ Years Combined Experience", accent: "#00B6D5" },
-            { icon: "🎓", text: "ISO 27001 · OSCP · CEH Certified", accent: "#00B6D5" },
-            { icon: "🕒", text: "24/7 Protection", accent: "#00B6D5" },
-            { icon: "✅", text: "100% Compliance Success Rate", accent: "#85C441" },
+            { icon: "💻", text: "15+ Years Combined Experience", accent: "#FF8A00" },
+            { icon: "🎓", text: "ISO 27001 · OSCP · CEH Certified", accent: "#FF8A00" },
+            { icon: "🕒", text: "24/7 Protection", accent: "#FF8A00" },
+            { icon: "✅", text: "100% Compliance Success Rate", accent: "#FF8A00" },
           ].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-2" style={{ color: "#6D7482" }}>
+            <div key={idx} className="flex items-center gap-2" style={{ color: "#FFFFFF" }}>
               <span style={{ color: item.accent, fontSize: "1.1rem" }}>{item.icon}</span>
               {item.text}
             </div>

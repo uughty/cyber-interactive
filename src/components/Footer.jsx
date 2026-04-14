@@ -1,132 +1,129 @@
 import React from "react";
 import { FaLinkedinIn, FaXTwitter, FaFacebookF, FaWhatsapp } from "react-icons/fa6";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Globe } from "lucide-react";
 
 const footerLinks = {
   "Quick Links": [
-    { label: "About Us", href: "#" },
-    { label: "Our Solutions", href: "#" },
-    { label: "Industries We Serve", href: "#" },
-    { label: "Resources", href: "#" },
-    { label: "Data Privacy Policy", href: "#" },
-    { label: "Cookies Policy", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "About Us", href: "/about" },
+    { label: "Our Solutions", href: "/solutions" },
+    { label: "Industries We Serve", href: "/industries" },
+    { label: "Resources", href: "/resources" },
+    { label: "Data Privacy Policy", href: "/privacy" },        // ✅ Fixed to /privacy
+    
+    { label: "Contact", href: "/contact" },
   ],
   Solutions: [
-    { label: "Consulting & Advisory", href: "#" },
-    { label: "Cybersecurity Solutions", href: "#" },
-    { label: "Managed Services", href: "#" },
-    { label: "Training Programs", href: "#" },
+    { label: "Consulting & Advisory", href: "/solutions/consulting" },
+    { label: "Cybersecurity Solutions", href: "/solutions/cybersecurity" },
+    { label: "Managed Services", href: "/solutions/managed" },
+    { label: "Training Programs", href: "/solutions/training" },
   ],
   Industries: [
-    { label: "Financial Services", href: "#" },
-    { label: "Healthcare", href: "#" },
-    { label: "Retail", href: "#" },
-    { label: "Manufacturing", href: "#" },
-    { label: "Government", href: "#" },
+    { label: "Financial Services", href: "/industries/finance" },
+    { label: "Healthcare", href: "/industries/healthcare" },
+    { label: "Retail", href: "/industries/retail" },
+    { label: "Manufacturing", href: "/industries/manufacturing" },
+    { label: "Government", href: "/industries/government" },
   ],
   Resources: [
-    { label: "Blog", href: "#" },
-    { label: "Security Tools", href: "#" },
+    { label: "Blog", href: "/blog" },
+    { label: "Security Tools", href: "/tools" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Whitepapers", href: "/whitepapers" },
   ],
 };
 
 const socials = [
   { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/cybertrove-africa/", hoverBg: "#0a66c2", label: "LinkedIn" },
-  { icon: FaXTwitter,   href: "https://x.com/CyberTrove_Ltd?s=09",                  hoverBg: "#1a1a1a", label: "X" },
-  { icon: FaWhatsapp,   href: "https://wa.me/254782966418",                           hoverBg: "#25d366", label: "WhatsApp" },
-  { icon: FaFacebookF,  href: "#",                                                    hoverBg: "#1877f2", label: "Facebook" },
+  { icon: FaXTwitter, href: "https://x.com/CyberTrove_Ltd", hoverBg: "#000000", label: "X" },           // ✅ Fixed URL
+  { icon: FaWhatsapp, href: "https://wa.me/254782966418", hoverBg: "#25d366", label: "WhatsApp" },
+  { icon: FaFacebookF, href: "https://facebook.com/cybertroveafrica", hoverBg: "#1877f2", label: "Facebook" },  // ✅ Fixed
 ];
 
 const Footer = () => {
   return (
-    <footer
-      className="relative overflow-hidden"
-      style={{
-        background: "#080f1c",
-        borderTop: "0.5px solid rgba(0,182,213,0.2)",
-      }}
-    >
-      {/* Circuit grid */}
+    <footer className="relative overflow-hidden" style={{ background: "#0b1120", borderTop: "1px solid rgba(249,115,22,0.15)" }}>
+      {/* Enhanced Circuit Grid */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 L60 60 L60 0' stroke='%2300B6D5' stroke-width='0.3' fill='none'/%3E%3Cpath d='M60 120 L60 60 L120 60' stroke='%2300B6D5' stroke-width='0.3' fill='none'/%3E%3Ccircle cx='60' cy='60' r='1.5' fill='%2385C441'/%3E%3C/svg%3E")`,
-          backgroundSize: "120px 120px",
-          opacity: 0.04,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 L50 50 L50 0 M50 100 L50 50 L100 50' stroke='%23F97316' stroke-width='0.25' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='1.2' fill='%23FFFFFF' opacity='0.8'/%3E%3Ccircle cx='25' cy='25' r='0.8' fill='%23F97316' opacity='0.6'/%3E%3Ccircle cx='75' cy='75' r='0.8' fill='%23FFFFFF' opacity='0.6'/%3E%3C/svg%3E")`,
+          backgroundSize: "100px 100px",
+          opacity: 0.03,
         }}
       />
 
-      {/* Ambient glows */}
-      <div className="absolute pointer-events-none z-0" style={{ width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,182,213,0.05) 0%, transparent 70%)", top: -120, left: -80 }} />
-      <div className="absolute pointer-events-none z-0" style={{ width: 360, height: 360, borderRadius: "50%", background: "radial-gradient(circle, rgba(133,196,65,0.04) 0%, transparent 70%)", bottom: 0, right: 0 }} />
+      {/* Dynamic Ambient Glows */}
+      <div className="absolute pointer-events-none z-0" style={{ 
+        width: 500, height: 500, borderRadius: "50%", 
+        background: "radial-gradient(circle at 20% 20%, rgba(249,115,22,0.06) 0%, transparent 70%)", 
+        top: -100, left: -50 
+      }} />
+      <div className="absolute pointer-events-none z-0" style={{ 
+        width: 380, height: 380, borderRadius: "50%", 
+        background: "radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 70%)", 
+        bottom: -50, right: -50 
+      }} />
 
-      <div className="relative z-10 container mx-auto px-6 pt-20 pb-6">
-
-        {/* ── Top: Logo + tagline + links ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 mb-16">
-
-          {/* Brand column — spans 2 cols */}
-          <div className="lg:col-span-2 flex flex-col gap-5">
-            {/* Logo + name */}
-            <div className="flex items-center gap-3">
-              <img src="./assets/logo.png" alt="CyberTrove Africa" style={{ width: 44, height: 44, objectFit: "contain" }} />
-              <span className="text-lg font-bold" style={{ color: "#FBF9F9" }}>
-                Cyber<span style={{ color: "#00B6D5" }}>Trove</span>{" "}
-                <span style={{ color: "#85C441" }}>Africa</span>
-              </span>
+      <div className="relative z-10 container mx-auto px-6 md:px-12 pt-20 pb-12">
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
+          
+          {/* Brand Column - Full width on mobile, 4 cols on desktop */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            {/* Enhanced Logo */}
+            <div className="flex items-center gap-3 group">
+              <div style={{ 
+                width: 48, height: 48, borderRadius: 12, 
+                background: "linear-gradient(135deg, rgba(249,115,22,0.1), rgba(255,255,255,0.05))",
+                border: "1px solid rgba(249,115,22,0.2)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                transition: "all 0.3s ease"
+              }}>
+                <img src="./assets/logo.png" alt="CyberTrove Africa" style={{ width: 36, height: 36, objectFit: "contain" }} />
+              </div>
+              <div>
+                <h2 className="text-xl font-black" style={{ color: "#FBF9F9" }}>
+                  Cyber<span style={{ color: "#F97316" }}>Trove</span> Africa
+                </h2>
+                <p className="text-xs" style={{ color: "#6D7482" }}>ISO 27001 Certified</p>
+              </div>
             </div>
 
-            {/* Tagline */}
-            <p style={{ color: "#6D7482", fontSize: "0.88rem", lineHeight: 1.75, maxWidth: 280 }}>
-              Interactive defense and proactive security — protecting Africa's digital future.
+            {/* Enhanced Tagline */}
+            <p style={{ color: "#9CA3AF", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: 300 }}>
+              Practical, compliance-driven security for growing enterprises.
             </p>
 
-            {/* Contact block */}
-            <ul className="space-y-3 text-sm" style={{ color: "#9aa3b0" }}>
-              <li className="flex items-start gap-2.5">
-                <MapPin size={15} style={{ color: "#00B6D5", flexShrink: 0, marginTop: 2 }} />
-                <span>Nairobi, Kenya</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Phone size={15} style={{ color: "#00B6D5", flexShrink: 0, marginTop: 2 }} />
-                <a href="https://wa.me/254782966418" target="_blank" rel="noopener noreferrer"
-                  style={{ color: "#9aa3b0", textDecoration: "none", transition: "color 0.2s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#00B6D5")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#9aa3b0")}
+            {/* Contact Cards */}
+            <div className="space-y-4">
+              {[
+                { icon: MapPin, label: "Nairobi, Kenya", color: "#F97316" },
+                { icon: Phone, label: "+254 782 966418", href: "https://wa.me/254782966418", color: "#F97316" },
+                { icon: Mail, label: "support@cybertroveafrica.com", href: "mailto:support@cybertroveafrica.com", color: "#F97316" },
+                { icon: Globe, label: "cybertroveafrica.com", href: "https://cybertroveafrica.com", color: "#F97316" },
+              ].map((contact, i) => (
+                <a
+                  key={i}
+                  href={contact.href || "#"}
+                  target={contact.href?.startsWith("http") ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 p-3 rounded-xl transition-all duration-200 hover:bg-white/5 hover:-translate-x-1 hover:shadow-lg"
+                  style={{ border: "1px solid rgba(249,115,22,0.1)" }}
                 >
-                  0782966418
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Mail size={15} style={{ color: "#00B6D5", flexShrink: 0, marginTop: 2 }} />
-                <a href="mailto:support@cybertroveafrica.com"
-                  style={{ color: "#9aa3b0", textDecoration: "none", transition: "color 0.2s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#00B6D5")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#9aa3b0")}
-                >
-                  support@cybertroveafrica.com
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span style={{ width: 15, flexShrink: 0, marginTop: 2, display: "inline-flex", justifyContent: "center" }}>
-                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-                    <circle cx="8" cy="8" r="7" stroke="#00B6D5" strokeWidth="1.2" />
-                    <path d="M8 1c-2 2-3 4-3 7s1 5 3 7M8 1c2 2 3 4 3 7s-1 5-3 7M1 8h14" stroke="#00B6D5" strokeWidth="1.2" />
+                  <contact.icon size={18} style={{ color: contact.color, flexShrink: 0 }} />
+                  <span style={{ color: "#9CA3AF", fontSize: "0.9rem", transition: "color 0.2s" }}>
+                    {contact.label}
+                  </span>
+                  <svg className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </span>
-                <a href="https://www.cybertroveafrica.com" target="_blank" rel="noopener noreferrer"
-                  style={{ color: "#9aa3b0", textDecoration: "none", transition: "color 0.2s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#00B6D5")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#9aa3b0")}
-                >
-                  www.cybertroveafrica.com
                 </a>
-              </li>
-            </ul>
+              ))}
+            </div>
 
-            {/* Social icons */}
-            <div className="flex gap-3 mt-1">
+            {/* Social Icons - Enhanced */}
+            <div className="flex gap-3 pt-2">
               {socials.map((s, i) => {
                 const Icon = s.icon;
                 return (
@@ -136,104 +133,97 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
+                    className="group relative p-3 rounded-xl transition-all duration-200 hover:scale-110"
                     style={{
-                      width: 36, height: 36, borderRadius: 8,
-                      background: "rgba(17,25,40,0.8)",
-                      border: "0.5px solid rgba(0,182,213,0.2)",
+                      background: "rgba(17,24,40,0.8)",
+                      border: "1px solid rgba(249,115,22,0.2)",
+                      width: 44, height: 44,
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      transition: "background 0.2s, border-color 0.2s",
-                      textDecoration: "none",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = s.hoverBg;
-                      e.currentTarget.style.borderColor = "transparent";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "rgba(17,25,40,0.8)";
-                      e.currentTarget.style.borderColor = "rgba(0,182,213,0.2)";
                     }}
                   >
-                    <Icon style={{ width: 14, height: 14, color: "#FBF9F9" }} />
+                    <Icon style={{ width: 16, height: 16, color: "#FBF9F9" }} />
+                    <div 
+                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                      style={{ background: s.hoverBg + "CC" }}
+                    />
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([heading, links]) => (
-            <div key={heading} className="lg:col-span-1">
-              {/* Column heading */}
-              <div className="flex items-center gap-2 mb-4">
-                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#00B6D5", display: "inline-block", boxShadow: "0 0 0 2px rgba(0,182,213,0.2)" }} />
-                <h4 style={{ fontSize: "0.8rem", fontWeight: 700, color: "#FBF9F9", letterSpacing: "0.06em" }}>
-                  {heading.toUpperCase()}
-                </h4>
+          {/* Link Columns - Better spacing */}
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {Object.entries(footerLinks).map(([heading, links], colIdx) => (
+              <div key={heading} className="space-y-4">
+                {/* Column Header */}
+                <div className="flex items-center gap-2.5">
+                  <div 
+                    style={{
+                      width: 6, height: 6, borderRadius: "50%",
+                      background: "#F97316",
+                      boxShadow: "0 0 0 2px rgba(249,115,22,0.3)"
+                    }}
+                  />
+                  <h4 style={{ 
+                    fontSize: "0.85rem", fontWeight: 700, 
+                    color: "#FBF9F9", letterSpacing: "0.08em", 
+                    textTransform: "uppercase"
+                  }}>
+                    {heading}
+                  </h4>
+                </div>
+
+                {/* Link List */}
+                <ul className="space-y-2.5">
+                  {links.map((link, i) => (
+                    <li key={i}>
+                      <a
+                        href={link.href}
+                        className="group flex items-center gap-2.5 p-1.5 rounded-lg transition-all duration-200 hover:bg-white/5 hover:pl-2.5"
+                        style={{ 
+                          fontSize: "0.84rem", color: "#9CA3AF",
+                          textDecoration: "none"
+                        }}
+                      >
+                        <div 
+                          className="w-1.5 h-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all flex-shrink-0"
+                          style={{ background: "#F97316" }}
+                        />
+                        <span>{link.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Hairline under heading */}
-              <div style={{ height: "0.5px", background: "rgba(0,182,213,0.15)", marginBottom: "1rem" }} />
-
-              <ul className="space-y-2.5">
-                {links.map((link, i) => (
-                  <li key={i}>
-                    <a
-                      href={link.href}
-                      style={{
-                        fontSize: "0.83rem",
-                        color: "#6D7482",
-                        textDecoration: "none",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 6,
-                        transition: "color 0.2s, gap 0.2s",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.color = "#00B6D5";
-                        e.currentTarget.style.gap = "10px";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.color = "#6D7482";
-                        e.currentTarget.style.gap = "6px";
-                      }}
-                    >
-                      <svg width="6" height="6" viewBox="0 0 6 6" fill="none" style={{ flexShrink: 0 }}>
-                        <path d="M1 3h4M3 1l2 2-2 2" stroke="#00B6D5" strokeWidth="1" strokeLinecap="round" />
-                      </svg>
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Divider ── */}
-        <div className="flex items-center gap-3 mb-6">
-          <div style={{ flex: 1, height: "0.5px", background: "linear-gradient(to right, transparent, rgba(0,182,213,0.3))" }} />
-          <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(0,182,213,0.4)", display: "inline-block" }} />
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#00B6D5", display: "inline-block", boxShadow: "0 0 0 2px rgba(0,182,213,0.15)" }} />
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(133,196,65,0.4)", display: "inline-block" }} />
+            ))}
           </div>
-          <div style={{ flex: 1, height: "0.5px", background: "linear-gradient(to left, transparent, rgba(133,196,65,0.3))" }} />
         </div>
 
-        {/* ── Bottom bar ── */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-          <p style={{ fontSize: "0.8rem", color: "#6D7482" }}>
-            © 2025 CyberTrove Africa. All rights reserved.
+        {/* Enhanced Divider */}
+        <div className="flex items-center gap-4 mb-10">
+          <div style={{ flex: 1, height: "1px", background: "linear-gradient(to right, transparent, rgba(249,115,22,0.4), transparent)" }} />
+          <div className="flex items-center gap-2 p-3 rounded-full bg-white/5 border border-orange-500/20">
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(249,115,22,0.5)" }} />
+            <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#F97316", boxShadow: "0 0 12px rgba(249,115,22,0.4)" }} />
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(255,255,255,0.5)" }} />
+          </div>
+          <div style={{ flex: 1, height: "1px", background: "linear-gradient(to left, transparent, rgba(255,255,255,0.2), transparent)" }} />
+        </div>
+
+        {/* Enhanced Bottom Bar */}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 pt-8 border-t border-orange-500/10">
+          <p className="text-sm text-center lg:text-left" style={{ color: "#6D7482" }}>
+            © 2025 CyberTrove Africa Ltd. All rights reserved. | ISO 27001 Certified
           </p>
-          <div className="flex items-center gap-4" style={{ fontSize: "0.8rem" }}>
-            {["Privacy Policy", "Cookies Policy"].map((item, i) => (
+          <div className="flex items-center gap-6">
+            {["Privacy Policy"].map((item, i) => (
               <React.Fragment key={i}>
-                {i > 0 && <span style={{ color: "rgba(0,182,213,0.3)" }}>|</span>}
+                {i > 0 && <span style={{ color: "rgba(249,115,22,0.4)", fontSize: "1rem" }}>|</span>}
                 <a
-                  href="#"
-                  style={{ color: "#6D7482", textDecoration: "none", transition: "color 0.2s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#00B6D5")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#6D7482")}
+                  href={`/privacy`} // ✅ All privacy links point to your privacy.jsx
+                  className="text-sm font-medium transition-colors duration-200 hover:text-orange-400 group"
+                  style={{ color: "#9CA3AF" }}
                 >
                   {item}
                 </a>
@@ -241,7 +231,6 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
       </div>
     </footer>
   );

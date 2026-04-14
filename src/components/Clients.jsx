@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ShieldCheck } from "lucide-react";
 const SectionTitle = ({ title, subtitle, highlight }) => (
   <div className="text-center mb-16">
     <div
@@ -149,7 +149,7 @@ const Clients = () => {
     { name: "Chuna DT Sacco Ltd",      logo: "assets/chuna.png",       url: "https://chunasacco.co.ke/" },
     { name: "Institute of Pension Management", logo: "assets/pension.jpg", url: "https://ipm.ac.ke/" },
     { name: "Nafasi Sacco",            logo: "assets/nafasi.png",      url: "https://nafasisacco.com/" },
-    { name: "Ukoaji Sacco",            logo: "assets/uokoaji.jpg",     url: "https://ukoajisacco.com/" },
+    { name: "Prudmat Technologies",    logo: "assets/prudmat.jpeg",     url: "https://prudmat.org/" },
     { name: "Utabibu",                 logo: "assets/utabibu.png",     url: "https://utabibusacco.com/" },
     { name: "KMA Sacco",               logo: "assets/kma.jpg",         url: "https://kmasacco.com/" },
     { name: "Pivot Assets",            logo: "assets/pivot.png",       url: "https://pivotassets.co.ke/" },
@@ -238,8 +238,8 @@ const Clients = () => {
         {/* Footer text */}
         <div className="text-center">
           <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "#FBF9F9" }}>
-            Trusted by Industry Leaders Across{" "}
-            <span style={{ color: "#85C441" }}>Africa 🚀</span>
+            Securing Critical Systems for Africa’s Leading Organisations.
+            <span style={{ color: "#85C441" }}></span>
           </h3>
         </div>
 

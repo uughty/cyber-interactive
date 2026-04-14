@@ -24,6 +24,8 @@ const serviceCategories = [
       { name: "Proactive Monitoring & Incident Response", description: "24/7 security monitoring with real-time threat detection, response, and remediation to safeguard business operations." },
       { name: "Vulnerability & Patch Management", description: "Continuous vulnerability scans and automated patching to keep systems hardened against cyber exploits." },
       { name: "Threat Hunting", description: "Advanced analytics and intelligence-driven investigations to uncover hidden threats before they cause damage." },
+      { name: "Red Teaming", description: "Simulated real-world cyberattacks to test defenses, identify security gaps, and improve organizational resilience against advanced threats." },
+
     ],
   },
   {
@@ -58,7 +60,7 @@ const serviceCategories = [
 ];
 
 const FALLBACK =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWYyOTM3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzlhYTNiMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SW1hZ2UgQ29taW5nIFNvb248L3RleHQ+PC9zdmc+";
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMTExOTI4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iI2Y5NzMxNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SW1hZ2UgQ29taW5nIFNvb248L3RleHQ+PC9zdmc+";
 
 const Services = () => {
   return (
@@ -66,20 +68,20 @@ const Services = () => {
       <style>{`
         #services {
           background:
-            linear-gradient(160deg, rgba(0,182,213,0.08) 0%, rgba(17,25,40,0.92) 50%, rgba(133,196,65,0.06) 100%),
+            linear-gradient(160deg, rgba(249,115,22,0.08) 0%, rgba(17,25,40,0.92) 50%, rgba(255,255,255,0.03) 100%),
             linear-gradient(135deg, #0b1120 0%, #111928 50%, #1f2937 100%);
           min-height: 100vh;
           padding: 7rem 1.5rem;
         }
         .cyber-gradient {
-          background: linear-gradient(90deg, #00b6d5, #85c441);
+          background: linear-gradient(90deg, #F97316, #FFFFFF);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .svc-card {
           background: rgba(17, 25, 40, 0.97);
-          border: 1px solid rgba(0, 182, 213, 0.3);
+          border: 1px solid rgba(249, 115, 22, 0.3);
           border-radius: 1.25rem;
           box-shadow: 0 25px 50px rgba(0,0,0,0.45);
           transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -89,20 +91,20 @@ const Services = () => {
         }
         .svc-card:hover {
           transform: translateY(-8px);
-          box-shadow: 0 40px 80px rgba(0,182,213,0.25);
-          border-color: rgba(0,182,213,0.6);
+          box-shadow: 0 40px 80px rgba(249,115,22,0.25);
+          border-color: rgba(249,115,22,0.6);
         }
         .img-card {
           border-radius: 1.25rem;
           overflow: hidden;
-          border: 1px solid rgba(0, 182, 213, 0.4);
+          border: 1px solid rgba(249, 115, 22, 0.4);
           box-shadow: 0 25px 50px rgba(0,0,0,0.45);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           position: relative;
         }
         .img-card:hover {
           transform: translateY(-8px);
-          box-shadow: 0 40px 80px rgba(133,196,65,0.3);
+          box-shadow: 0 40px 80px rgba(249,115,22,0.3);
         }
         .img-card img {
           width: 100%;
@@ -120,8 +122,8 @@ const Services = () => {
           cursor: pointer;
           transition: background 0.2s ease;
         }
-        .svc-item:hover { background: rgba(0,182,213,0.06); }
-        .svc-item:hover .svc-name { color: #00b6d5; text-decoration: underline; }
+        .svc-item:hover { background: rgba(249,115,22,0.06); }
+        .svc-item:hover .svc-name { color: #F97316; text-decoration: underline; }
         .svc-name {
           font-weight: 600;
           color: #FBF9F9;
@@ -130,7 +132,7 @@ const Services = () => {
         }
         .icon-wrap {
           padding: 1rem;
-          background: linear-gradient(135deg, #00b6d5, #85c441);
+          background: linear-gradient(135deg, #F97316, #FFFFFF);
           border-radius: 1rem;
           margin-right: 1.25rem;
           flex-shrink: 0;
@@ -156,11 +158,11 @@ const Services = () => {
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "0.75rem",
             marginBottom: "2rem", padding: "0.75rem 1.5rem", borderRadius: "9999px",
-            background: "linear-gradient(90deg, rgba(0,182,213,0.1), rgba(133,196,65,0.1))",
-            border: "1px solid rgba(0,182,213,0.3)"
+            background: "linear-gradient(90deg, rgba(249,115,22,0.1), rgba(255,255,255,0.05))",
+            border: "1px solid rgba(249,115,22,0.3)"
           }}>
-            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "linear-gradient(90deg, #00b6d5, #85c441)" }} />
-            <span style={{ textTransform: "uppercase", letterSpacing: "0.15em", color: "#00b6d5", fontWeight: 600, fontSize: "0.8rem" }}>
+            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "linear-gradient(90deg, #F97316, #FFFFFF)" }} />
+            <span style={{ textTransform: "uppercase", letterSpacing: "0.15em", color: "#F97316", fontWeight: 600, fontSize: "0.8rem" }}>
               What We Do
             </span>
           </div>
@@ -169,7 +171,7 @@ const Services = () => {
             <span className="cyber-gradient">Our Services</span>
           </h2>
 
-          <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#9aa3b0", maxWidth: "48rem", margin: "0 auto", lineHeight: 1.7 }}>
+          <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#9CA3AF", maxWidth: "48rem", margin: "0 auto", lineHeight: 1.7 }}>
             Delivering world-class cybersecurity, compliance, and IT solutions
             engineered to safeguard your business in the digital era.
           </p>
@@ -197,11 +199,11 @@ const Services = () => {
                     <Tooltip key={i}>
                       <TooltipTrigger asChild>
                         <li className="svc-item">
-                          <CheckCircle style={{ width: 20, height: 20, color: "#00b6d5", marginRight: "0.75rem", marginTop: 2, flexShrink: 0 }} />
+                          <CheckCircle style={{ width: 20, height: 20, color: "#F97316", marginRight: "0.75rem", marginTop: 2, flexShrink: 0 }} />
                           <span className="svc-name">{service.name}</span>
                         </li>
                       </TooltipTrigger>
-                      <TooltipContent side="right" className="max-w-xs p-4 text-sm rounded-xl bg-[#0b1120] border border-[#00b6d5]/30 text-[#FBF9F9] shadow-2xl">
+                      <TooltipContent side="right" className="max-w-xs p-4 text-sm rounded-xl bg-[#0b1120] border border-[#F97316]/30 text-[#FBF9F9] shadow-2xl">
                         {service.description}
                       </TooltipContent>
                     </Tooltip>
