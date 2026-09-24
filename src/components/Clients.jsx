@@ -156,6 +156,8 @@ const Clients = () => {
     { name: "Finnet",                  logo: "assets/finnet.jpg",      url: "https://www.finnet.co.ke/" },
     { name: "Sentinel Africa",         logo: "assets/sa.png",          url: "https://sentinelafrica.com/" },
     { name: "Enwealth",                logo: "assets/enwealth.jpg",    url: "https://enwealth.co.ke/" },
+     { name: "Empiretech Solutions Ltd",logo: "assets/empire.jpeg",    url: "https://www.empiretecsolutions.com/" },
+    
   ];
 
   return (

@@ -169,7 +169,7 @@ const WhyChooseUs = () => {
                 <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-[#F97316] rounded-tl-3xl z-10 pointer-events-none" />
 
                 <img
-                  src="/assets/sec.png"
+                  src="/assets/Value.jpg"
                   alt="CyberTrove Africa team working"
                   className="w-full h-full object-cover filter brightness-[0.95]"
                 />

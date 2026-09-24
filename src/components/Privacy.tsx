@@ -8,7 +8,7 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.25 },
-  transition: { duration: 0.7, ease: "easeOut", delay },
+  transition: { duration: 0.7, ease: "easeOut" as const, delay },
 });
 
 const Privacy = () => {
@@ -229,7 +229,7 @@ const Privacy = () => {
                       backdropFilter: "blur(10px)",
                     }}
                   >
-                    <h4 style={{ color: "#FBF9F9", fontWeight: 700, fontSize: "1rem", mb: 2 }}>
+                    <h4 style={{ color: "#FBF9F9", fontWeight: 700, fontSize: "1rem", marginBottom: "0.5rem" }}>
                       {item.title}
                     </h4>
                     <p style={{ color: "#9CA3AF", fontSize: "0.95rem" }}>{item.desc}</p>
@@ -456,7 +456,7 @@ const Privacy = () => {
                   </div>
                   <div className="w-px h-16 bg-gradient-to-b from-transparent via-[#F97316]/30 to-transparent" />
                   <div>
-                    <p style={{ color: "#FBF9F9", fontWeight: 600, mb: 1 }}>CyberTrove Africa</p>
+                    <p style={{ color: "#FBF9F9", fontWeight: 600, marginBottom: 1 }}>CyberTrove Africa</p>
                     <a
                       href="https://cybertroveafrica.com"
                       target="_blank"

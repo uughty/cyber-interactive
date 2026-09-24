@@ -1,6 +1,6 @@
 import React from "react";
 import { FaLinkedinIn, FaXTwitter, FaFacebookF, FaWhatsapp } from "react-icons/fa6";
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Smartphone } from "lucide-react";
 
 const footerLinks = {
   "Quick Links": [
@@ -86,7 +86,7 @@ const Footer = () => {
                 <h2 className="text-xl font-black" style={{ color: "#FBF9F9" }}>
                   Cyber<span style={{ color: "#F97316" }}>Trove</span> Africa
                 </h2>
-                <p className="text-xs" style={{ color: "#6D7482" }}>ISO 27001 Certified</p>
+            
               </div>
             </div>
 
@@ -101,7 +101,7 @@ const Footer = () => {
                 { icon: MapPin, label: "Nairobi, Kenya", color: "#F97316" },
                 { icon: Phone, label: "+254 782 966418", href: "https://wa.me/254782966418", color: "#F97316" },
                 { icon: Mail, label: "support@cybertroveafrica.com", href: "mailto:support@cybertroveafrica.com", color: "#F97316" },
-                { icon: Globe, label: "cybertroveafrica.com", href: "https://cybertroveafrica.com", color: "#F97316" },
+                { icon: Smartphone, label: "+254 701 213 240", href: "tel:+254701213240", color: "#F97316" },
               ].map((contact, i) => (
                 <a
                   key={i}
