@@ -47,7 +47,7 @@ const Field = ({ label, required, error, children }) => {
       >
         {label}
         {required && (
-          <span style={{ color: "#F97316", marginLeft: "0.25rem" }}>
+          <span style={{ color: "#EA6308", marginLeft: "0.25rem" }}>
             *
           </span>
         )}
@@ -329,19 +329,7 @@ const SecurityAssessmentModal = ({ isOpen, onClose }) => {
               />
             </Field>
 
-            <Field label="Website URL" required error={errors.website}>
-              <input
-                type="url"
-                name="website"
-                value={formData.website}
-                onChange={handleChange}
-                placeholder="https://example.com"
-                style={{
-                  ...inputStyle,
-                  borderColor: errors.website ? "#FCA5A5" : "#E5E7EB",
-                }}
-              />
-            </Field>
+          
 
             <Field label="Industry">
               <select
@@ -388,7 +376,7 @@ const SecurityAssessmentModal = ({ isOpen, onClose }) => {
                 cursor: isSubmitting ? "not-allowed" : "pointer",
                 background: isSubmitting
                   ? "#9CA3AF"
-                  : "linear-gradient(135deg, #F97316, #EA580C)",
+                  : "linear-gradient(135deg, #EA6308, #D9540A)",
                 color: "#FFFFFF",
                 fontSize: "1rem",
                 fontWeight: 700,
@@ -423,7 +411,7 @@ const CyberBackground = () => {
       <div 
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] sm:h-[500px] rounded-full opacity-40 blur-[130px]"
         style={{
-          background: "radial-gradient(ellipse at center, rgba(249, 115, 22, 0.35) 0%, rgba(14, 165, 233, 0.2) 45%, rgba(3, 7, 18, 0) 75%)",
+          background: "radial-gradient(ellipse at center, rgba(234, 99, 8, 0.35) 0%, rgba(14, 165, 233, 0.2) 45%, rgba(3, 7, 18, 0) 75%)",
         }}
       />
 
@@ -489,12 +477,12 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
       >
         {/* Top Badge */}
         <motion.div {...fadeUp(0.1)} className="mb-8 flex justify-center">
-          <div className="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 rounded-full px-4 py-2 shadow-inner shadow-orange-500/10">
+          <div className="flex items-center gap-2 rounded-full px-4 py-2 shadow-inner" style={{ backgroundColor: "rgba(234, 99, 8, 0.1)", border: "1px solid rgba(234, 99, 8, 0.3)", boxShadow: "inset 0 0 0 1px rgba(234, 99, 8, 0.1)" }}>
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "rgba(234, 99, 8, 0.75)" }} />
+              <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "#EA6308" }} />
             </span>
-            <span className="text-xs font-bold text-orange-400 uppercase tracking-widest">
+            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#EA6308" }}>
               AI-Powered Security
             </span>
           </div>
@@ -506,7 +494,7 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
           className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight mb-8 tracking-tight max-w-4xl"
         >
           CYBER THREATS ARE EVOLVING{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">
+          <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(to right, #EA6308, #D9540A)" }}>
             IS YOUR BUSINESS READY?
           </span>
         </motion.h1>
@@ -529,7 +517,10 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl text-white font-semibold text-base transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 overflow-hidden w-full sm:w-auto"
+            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-white font-semibold text-base transition-all duration-300 overflow-hidden w-full sm:w-auto"
+            style={{ background: "linear-gradient(to right, #EA6308, #D9540A)", boxShadow: "0 0 20px rgba(234, 99, 8, 0.3)" }}
+            onMouseEnter={(e) => e.currentTarget.style.boxShadow = "0 0 30px rgba(234, 99, 8, 0.5), 0 -2px 0 rgba(234, 99, 8, 0.3)"}
+            onMouseLeave={(e) => e.currentTarget.style.boxShadow = "0 0 20px rgba(234, 99, 8, 0.3)"}
           >
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
             <span className="relative z-10 flex items-center gap-2">
@@ -551,7 +542,7 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
           {...fadeUp(0.6)}
           className="w-full max-w-4xl mx-auto mt-8 bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 relative overflow-hidden text-left shadow-2xl"
         >
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-500/20 blur-[80px] rounded-full pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full pointer-events-none" style={{ backgroundColor: "rgba(14, 165, 233, 0.2)", filter: "blur(80px)" }} />
           
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
@@ -584,7 +575,7 @@ const Hero = ({ onAboutClick, onServicesClick }) => {
                     <div className="text-xs font-semibold text-white">
                       Trusted by 500+ Teams
                     </div>
-                    <div className="text-xs font-medium text-amber-500 flex items-center gap-1 mt-0.5">
+                    <div className="text-xs font-medium flex items-center gap-1 mt-0.5" style={{ color: "#EA6308" }}>
                       <div className="flex gap-0.5">
                         {[...Array(5)].map((_, index) => (
                           <Star

@@ -19,6 +19,7 @@ const secondaryNav = [
 ];
 
 const HEADER_HEIGHT = 88;
+const ACCENT_COLOR = "#F97316"; // Updated orange
 
 const Header = () => {
   const [isMenuOpen,    setIsMenuOpen]    = useState(false);
@@ -98,10 +99,10 @@ const Header = () => {
             ? "rgba(0,0,0,0.95)"
             : "rgba(0,0,0,0.6)",
           borderBottom: isScrolled
-            ? "0.5px solid rgba(0,182,213,0.25)"
+            ? `0.5px solid rgba(249, 115, 22, 0.25)`
             : "0.5px solid rgba(255,255,255,0.06)",
           boxShadow: isScrolled
-            ? "0 4px 32px rgba(0,182,213,0.08)"
+            ? `0 4px 32px rgba(249, 115, 22, 0.08)`
             : "none",
         }}
         transition={{ duration: 0.25 }}
@@ -122,7 +123,7 @@ const Header = () => {
               className="text-[1.05rem] font-bold tracking-tight"
               style={{ color: "#FBF9F9" }}
             >
-              Cyber<span style={{ color: "#FF9500" }}>Trove</span>{" "}
+              Cyber<span style={{ color: ACCENT_COLOR }}>Trove</span>{" "}
               <span style={{ color: "#FBF9F9" }}>Africa</span>
             </span>
           </button>
@@ -136,7 +137,7 @@ const Header = () => {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className="relative px-3 py-1.5 text-[0.85rem] font-medium rounded-md transition-colors"
-                  style={{ color: isActive ? "#FF9500" : "#9aa3b0" }}
+                  style={{ color: isActive ? ACCENT_COLOR : "#9aa3b0" }}
                   onMouseEnter={(e) => {
                     if (!isActive) e.currentTarget.style.color = "#FBF9F9";
                   }}
@@ -149,7 +150,7 @@ const Header = () => {
                     <motion.span
                       layoutId="activeUnderline"
                       className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full"
-                      style={{ background: "#FF9500" }}
+                      style={{ background: ACCENT_COLOR }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -163,7 +164,7 @@ const Header = () => {
                 onClick={() => setIsMoreOpen((p) => !p)}
                 className="flex items-center gap-1 px-3 py-1.5 text-[0.85rem] font-medium rounded-md transition-colors"
                 style={{
-                  color: isSecondaryActive ? "#FF9500" : "#9aa3b0",
+                  color: isSecondaryActive ? ACCENT_COLOR : "#9aa3b0",
                 }}
                 onMouseEnter={(e) => {
                   if (!isSecondaryActive) e.currentTarget.style.color = "#FBF9F9";
@@ -192,7 +193,7 @@ const Header = () => {
                     className="absolute right-0 mt-2 w-48 rounded-xl overflow-hidden"
                     style={{
                       background: "rgba(0,0,0,0.97)",
-                      border: "0.5px solid rgba(255,149,0,0.2)",
+                      border: `0.5px solid rgba(249, 115, 22, 0.2)`,
                       boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
                     }}
                   >
@@ -204,12 +205,12 @@ const Header = () => {
                         style={{
                           color:
                             activeSection === item.href
-                              ? "#FF9500"
+                              ? ACCENT_COLOR
                               : "#9aa3b0",
                         }}
                         onMouseEnter={(e) =>
                           (e.currentTarget.style.background =
-                            "rgba(255,149,0,0.08)")
+                            "rgba(249, 115, 22, 0.08)")
                         }
                         onMouseLeave={(e) =>
                           (e.currentTarget.style.background = "transparent")
@@ -229,12 +230,12 @@ const Header = () => {
             <button
               onClick={() => scrollToSection("#contact")}
               className="px-5 py-2 text-[0.85rem] font-semibold rounded-full transition-all"
-              style={{ background: "#FF9500", color: "#000" }}
+              style={{ background: ACCENT_COLOR, color: "#000" }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.background = "#E68400")
+                (e.currentTarget.style.background = "#EA6308")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.background = "#FF9500")
+                (e.currentTarget.style.background = ACCENT_COLOR)
               }
             >
               Get In Touch
@@ -270,7 +271,7 @@ const Header = () => {
               className="fixed top-0 right-0 h-full w-72 z-50 flex flex-col"
               style={{
                 background: "#0a0a0a",
-                borderLeft: "0.5px solid rgba(255,149,0,0.2)",
+                borderLeft: `0.5px solid rgba(249, 115, 22, 0.2)`,
               }}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -286,7 +287,7 @@ const Header = () => {
                   className="text-[0.95rem] font-bold"
                   style={{ color: "#FBF9F9" }}
                 >
-                  Cyber<span style={{ color: "#FF9500" }}>Trove</span>
+                  Cyber<span style={{ color: ACCENT_COLOR }}>Trove</span>
                 </span>
                 <button
                   onClick={() => setIsMenuOpen(false)}
@@ -306,12 +307,12 @@ const Header = () => {
                       onClick={() => scrollToSection(item.href)}
                       className="text-left px-4 py-3 rounded-lg text-[0.9rem] font-medium transition-all"
                       style={{
-                        color: isActive ? "#FF9500" : "#9aa3b0",
+                        color: isActive ? ACCENT_COLOR : "#9aa3b0",
                         background: isActive
-                          ? "rgba(255,149,0,0.08)"
+                          ? "rgba(249, 115, 22, 0.08)"
                           : "transparent",
                         borderLeft: isActive
-                          ? "2px solid #FF9500"
+                          ? `2px solid ${ACCENT_COLOR}`
                           : "2px solid transparent",
                       }}
                     >
@@ -329,7 +330,7 @@ const Header = () => {
                 <button
                   onClick={() => scrollToSection("#contact")}
                   className="w-full py-3 rounded-full text-[0.9rem] font-semibold"
-                  style={{ background: "#FF9500", color: "#000" }}
+                  style={{ background: ACCENT_COLOR, color: "#000" }}
                 >
                   Get In Touch
                 </button>
