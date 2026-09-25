@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/index";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
-import Privacy from "./components/Privacy";        // ← add this
+import Privacy from '@/components/Privacy'       // ← add this
 import Footer from "./components/Footer";          // ← add this
 
 const queryClient = new QueryClient();

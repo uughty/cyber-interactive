@@ -122,8 +122,8 @@ const Header = () => {
               className="text-[1.05rem] font-bold tracking-tight"
               style={{ color: "#FBF9F9" }}
             >
-              Cyber<span style={{ color: "#00B6D5" }}>Trove</span>{" "}
-              <span style={{ color: "#85C441" }}>Africa</span>
+              Cyber<span style={{ color: "#FF9500" }}>Trove</span>{" "}
+              <span style={{ color: "#FBF9F9" }}>Africa</span>
             </span>
           </button>
 
@@ -136,7 +136,7 @@ const Header = () => {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className="relative px-3 py-1.5 text-[0.85rem] font-medium rounded-md transition-colors"
-                  style={{ color: isActive ? "#00B6D5" : "#9aa3b0" }}
+                  style={{ color: isActive ? "#FF9500" : "#9aa3b0" }}
                   onMouseEnter={(e) => {
                     if (!isActive) e.currentTarget.style.color = "#FBF9F9";
                   }}
@@ -149,7 +149,7 @@ const Header = () => {
                     <motion.span
                       layoutId="activeUnderline"
                       className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full"
-                      style={{ background: "#00B6D5" }}
+                      style={{ background: "#FF9500" }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -163,7 +163,7 @@ const Header = () => {
                 onClick={() => setIsMoreOpen((p) => !p)}
                 className="flex items-center gap-1 px-3 py-1.5 text-[0.85rem] font-medium rounded-md transition-colors"
                 style={{
-                  color: isSecondaryActive ? "#00B6D5" : "#9aa3b0",
+                  color: isSecondaryActive ? "#FF9500" : "#9aa3b0",
                 }}
                 onMouseEnter={(e) => {
                   if (!isSecondaryActive) e.currentTarget.style.color = "#FBF9F9";
@@ -192,7 +192,7 @@ const Header = () => {
                     className="absolute right-0 mt-2 w-48 rounded-xl overflow-hidden"
                     style={{
                       background: "rgba(0,0,0,0.97)",
-                      border: "0.5px solid rgba(0,182,213,0.2)",
+                      border: "0.5px solid rgba(255,149,0,0.2)",
                       boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
                     }}
                   >
@@ -204,12 +204,12 @@ const Header = () => {
                         style={{
                           color:
                             activeSection === item.href
-                              ? "#00B6D5"
+                              ? "#FF9500"
                               : "#9aa3b0",
                         }}
                         onMouseEnter={(e) =>
                           (e.currentTarget.style.background =
-                            "rgba(0,182,213,0.08)")
+                            "rgba(255,149,0,0.08)")
                         }
                         onMouseLeave={(e) =>
                           (e.currentTarget.style.background = "transparent")
@@ -229,12 +229,12 @@ const Header = () => {
             <button
               onClick={() => scrollToSection("#contact")}
               className="px-5 py-2 text-[0.85rem] font-semibold rounded-full transition-all"
-              style={{ background: "#00B6D5", color: "#000" }}
+              style={{ background: "#FF9500", color: "#000" }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.background = "#00a0bc")
+                (e.currentTarget.style.background = "#E68400")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.background = "#00B6D5")
+                (e.currentTarget.style.background = "#FF9500")
               }
             >
               Get In Touch
@@ -270,7 +270,7 @@ const Header = () => {
               className="fixed top-0 right-0 h-full w-72 z-50 flex flex-col"
               style={{
                 background: "#0a0a0a",
-                borderLeft: "0.5px solid rgba(0,182,213,0.2)",
+                borderLeft: "0.5px solid rgba(255,149,0,0.2)",
               }}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -286,7 +286,7 @@ const Header = () => {
                   className="text-[0.95rem] font-bold"
                   style={{ color: "#FBF9F9" }}
                 >
-                  Cyber<span style={{ color: "#00B6D5" }}>Trove</span>
+                  Cyber<span style={{ color: "#FF9500" }}>Trove</span>
                 </span>
                 <button
                   onClick={() => setIsMenuOpen(false)}
@@ -306,12 +306,12 @@ const Header = () => {
                       onClick={() => scrollToSection(item.href)}
                       className="text-left px-4 py-3 rounded-lg text-[0.9rem] font-medium transition-all"
                       style={{
-                        color: isActive ? "#00B6D5" : "#9aa3b0",
+                        color: isActive ? "#FF9500" : "#9aa3b0",
                         background: isActive
-                          ? "rgba(0,182,213,0.08)"
+                          ? "rgba(255,149,0,0.08)"
                           : "transparent",
                         borderLeft: isActive
-                          ? "2px solid #00B6D5"
+                          ? "2px solid #FF9500"
                           : "2px solid transparent",
                       }}
                     >
@@ -329,7 +329,7 @@ const Header = () => {
                 <button
                   onClick={() => scrollToSection("#contact")}
                   className="w-full py-3 rounded-full text-[0.9rem] font-semibold"
-                  style={{ background: "#00B6D5", color: "#000" }}
+                  style={{ background: "#FF9500", color: "#000" }}
                 >
                   Get In Touch
                 </button>
