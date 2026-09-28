@@ -158,7 +158,7 @@ const About = () => {
 
             <div className="space-y-5">
               {[
-                <>We combine{" "}<span className="font-bold" style={{ color: "#F97316" }}>globally recognised frameworks</span>{" "}with an intimate understanding of the African threat landscape. From Nairobi to Lagos, our experts embed with your teams to build defences that are proportionate, practical, and proactive.</>,
+                <>We combine{" "}<span className="font-bold" style={{ color: "#F97316" }}>globally recognised frameworks</span>{" "}with an intimate understanding of the African threat landscape.Our experts embed with your teams to build defences that are proportionate, practical, and proactive.</>,
                 <>Our certified professionals holding{" "}<span className="font-bold" style={{ color: "#FFFFFF" }}>CISSP, CISM, CEH, and OSCP</span>{" "}qualifications deliver proactive strategies and advisory services, acting as trusted partners in safeguarding your most critical digital assets.</>,
                 <>Unlike traditional providers, we stay engaged long after the initial assessment  continuously evolving your security posture as threats, regulations, and technology change around you.</>,
               ].map((text, i) => (
